@@ -2,6 +2,7 @@
 import pandas as pd
 import requests
 from config import cfg
+from mysql_connection import create_mysql_connection, insert_data_into_mysql
 
 def get_request(end_point, param):
     
@@ -43,22 +44,6 @@ city_rates = resp.get("json")
 print(city_rates)
 df = pd.json_normalize(city_rates)
 
-
-
-# Check if the request was successful (status code 200)
-# if response.status_code == 200:
-#     # Parse JSON response
-#     rates_data = response.json()
-
-#     # Convert JSON to DataFrame
-#     df = pd.json_normalize(rates_data)
-
-#     # Save DataFrame to CSV file
-#     df.to_csv('output.csv', index=False)
-
-#     print("Data saved to 'output.csv'")
-# else:
-#     # Print an error message if the request was not successful
-#     print(f"Error: {response.status_code} - {response.text}")
-    
-    
+mysql_connection = create_mysql_connection()
+insert_data_into_mysql(mysql_connection, city_rates)
+mysql_connection.close()

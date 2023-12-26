@@ -1,9 +1,6 @@
-from flask import Flask
 import pandas as pd
 import requests
 from config import cfg
-
-app = Flask(__name__)
 
 apikey = cfg("HQrevkey")
 
@@ -15,15 +12,7 @@ headers = {
     "X-API-KEY": apikey
 }
 
-#params = {
-#    "city_id": 140,
-#    "starttargetdate": "2023-12-24",
-#    "endtargetdate": "2024-01-24",
-#    "snapshotdate": "2023-12-24 19:08:23.603839",
-#    "property_types": "hotels",
-#    "stars": ['3', '4', '5'],
-#    "occupancy": "single"
-#}
+
 
 response = requests.get(url, headers=headers, params=None)
 
