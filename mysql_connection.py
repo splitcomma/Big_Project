@@ -89,3 +89,12 @@ def insert_data_into_mysql(connection, data):
 
     finally:
         cursor.close()
+        
+def select_records(connection):
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM segment_rate")
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+
+    
