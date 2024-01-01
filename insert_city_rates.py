@@ -18,9 +18,9 @@ url = f"{base_url}{endpoint}"
 headers = {"X-API-KEY": apikey}
 params = {
    "city_id": 140,
-   "starttargetdate": "2023-12-24",
-   "endtargetdate": "2024-01-24",
-   "snapshotdate": "2023-12-24 19:08:23.603839",
+   "starttargetdate": "2024-01-01",
+   "endtargetdate": "2024-03-31",
+   "snapshotdate": "2024-01-01 21:10:37.288573",
    "property_types": "hotels",
    "stars": ['3', '4', '5'],
    "occupancy": "single"
@@ -65,7 +65,7 @@ if response.status_code == 200:
 
         # Create the table if it doesn't exist
         create_table_query = """
-            CREATE TABLE IF NOT EXISTS testhq (
+            CREATE TABLE IF NOT EXISTS cityRates (
                 city_id INT,
                 property_type VARCHAR(255),
                 stars VARCHAR(255),
@@ -81,7 +81,7 @@ if response.status_code == 200:
 
         # Insert data into the MySQL table
         insert_query = """
-            INSERT INTO testhq
+            INSERT INTO cityRates
             (city_id, property_type, stars, snapshot_date, target_date, minimum_rate, median_rate, maximum_rate, count)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
