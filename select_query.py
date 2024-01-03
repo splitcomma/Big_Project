@@ -7,7 +7,7 @@ cursor = cnx.cursor()
 
 
 # Query to select and display data
-query = "SELECT * FROM employees"
+query = "SELECT * FROM cityRates"
 cursor.execute(query)
 for row in cursor:
      print(row)
