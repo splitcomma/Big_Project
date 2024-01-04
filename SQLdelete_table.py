@@ -26,5 +26,5 @@ def drop_table(table_name):
         cursor.close()
         cnx.close()
 
-table_to_drop = "testhq"
+table_to_drop = "cities"
 drop_table(table_to_drop)
