@@ -1,3 +1,5 @@
+# SQL testing and maintanace functions - Fetching current table names from database
+
 import mysql.connector
 from config import DATABASE_CONFIG
 from mysql.connector import errorcode
@@ -29,6 +31,6 @@ def get_table_names():
         # Close the cursor and connection
         cursor.close()
         cnx.close()
-
-# Example usage
+        
+        
 get_table_names()

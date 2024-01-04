@@ -1,3 +1,5 @@
+# SQL testing and maintanace functions - Deleting tables no longer in use  
+
 import mysql.connector
 from config import DATABASE_CONFIG
 from mysql.connector import errorcode
@@ -26,5 +28,5 @@ def drop_table(table_name):
         cursor.close()
         cnx.close()
 
-table_to_drop = "cities"
+table_to_drop = "CITIES"
 drop_table(table_to_drop)
